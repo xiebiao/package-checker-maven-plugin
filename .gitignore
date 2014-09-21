@@ -10,9 +10,5 @@
 *.iml
 
 /target/
-/build/
-/output
-/bin/output
-/bin/domain*.jar
 
 
