@@ -1,6 +1,6 @@
 package com.github.maven.plugin;
 
-import static org.junit.Assert.assertNotNull;
+import java.io.File;
 
 import org.apache.maven.plugin.testing.MojoRule;
 import org.junit.Rule;
@@ -21,15 +21,17 @@ public class PackageCheckerTest {
   };
 
   @Test
-  public void testSomething() throws Exception {
-    // File pom = new File("src/test/resources/pom.xml");
-    // assertTrue(pom.exists());
-    // rule.lookup(PackageChecker.class);
-    // Mojo mojo = rule.lookupMojo("check", pom);
-    // assertNotNull(mojo);
-    PackageChecker packageChecker = rule.lookup(PackageChecker.class);
-    assertNotNull(packageChecker);
-    packageChecker.execute();
+  public void testExecute() throws Exception {
+    String file =
+        PackageCheckerTest.class.getClassLoader().getResource("META-INF/maven/pom.xml").getFile();
+    System.out.println(file);
+    rule.executeMojo(new File(file), "check");
+//    assertNotNull( pom );
+//    assertTrue( pom.exists() );
+    //
+    // MyMojo myMojo = (MyMojo) rule.lookupMojo( "touch", pom );
+    // assertNotNull( myMojo );
+    // myMojo.execute();
 
 
   }

@@ -22,5 +22,6 @@ public class PackageChecker extends AbstractMojo {
     getLog().info("Hello, world.");
     System.out.println(this.getPluginContext());
 
+
   }
 }
