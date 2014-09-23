@@ -8,7 +8,7 @@ import org.apache.maven.plugin.testing.AbstractMojoTestCase;
  * @author xiebiao
  * @date 9/21/14
  */
-public class PackageCheckerTest2 extends AbstractMojoTestCase {
+public class PackageCheckerMojoTest extends AbstractMojoTestCase {
   protected void setUp() throws Exception {
     // required for mojo lookups to work
     super.setUp();
@@ -20,7 +20,8 @@ public class PackageCheckerTest2 extends AbstractMojoTestCase {
    */
   public void testMojoGoal() throws Exception {
     File testPom = new File(getBasedir(), "src/test/resources/pom.xml");
-    PackageChecker mojo = (PackageChecker) lookupMojo("check", testPom);
+    assertTrue(testPom.exists());
+    PackageCheckerMojo mojo = (PackageCheckerMojo) lookupMojo("check", testPom);
     assertNotNull(mojo);
   }
 }
